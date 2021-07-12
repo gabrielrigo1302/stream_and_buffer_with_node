@@ -1,0 +1,29 @@
+{
+  "name": "stream_and_buffer_with_node",
+  "version": "1.0.0",
+  "description": "install:\r node\r git\r postman\r vscode\r mysql ---> https://dev.mysql.com/downloads/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielrigo1302/stream_and_buffer_with_node.git"
+  },
+  "author": "Gabriel de Oliveira Rigo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielrigo1302/stream_and_buffer_with_node/issues"
+  },
+  "homepage": "https://github.com/gabrielrigo1302/stream_and_buffer_with_node#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "my-sql": "^1.2.15"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
