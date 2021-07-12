@@ -4,6 +4,7 @@
   "description": "install:\r node\r git\r postman\r vscode\r mysql ---> https://dev.mysql.com/downloads/",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
