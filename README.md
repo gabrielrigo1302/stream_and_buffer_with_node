@@ -19,6 +19,7 @@ npm install body-parser
 npm install my-sql
 npm install moment
 npm install file-system --save
+npm install faker
 
 # MVC
 

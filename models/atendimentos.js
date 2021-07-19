@@ -1,8 +1,13 @@
 const axios = require('axios');
 const moment = require('moment');
-const connection = require('../infraestrutura/connection');
+const connection = require('../infraestrutura/database/connection');
+const repository = require('../repositories/atendimentos');
 
 class Atendimento {
+    constructor() {
+
+    }
+
     get(response) {
         const sqlQuery = 'SELECT * FROM Atendimentos';
 
@@ -33,7 +38,8 @@ class Atendimento {
         })
     }
 
-    post(atendimento, response) {
+    post(atendimento) {
+        console.log('teste ===================== 2');
         const dataCriacao = moment().format('YYYY-MM-DD HH:mm:ss');
         const data = moment(atendimento?.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:mm:ss');
         const atendimentoCompleto = {...atendimento, dataCriacao, data};
@@ -52,19 +58,22 @@ class Atendimento {
         ];
 
         const erros = validacoes.filter((campo) => !campo.valido);
-        const sqlQuery = 'INSERT INTO Atendimentos SET ?';
-
+    
+        console.log('aqui então')
         if (erros.length) {
-            response.status(400).json(erros);
+            return new Promise((resolve, reject) => {
+                console.log('teste ===================== 6');
+                reject(erros)
+            });
 
         } else {
-            connection.query(sqlQuery, atendimentoCompleto, (error) => {
-                if (error) {
-                    response.status(400).json(error);
-                } else {
-                    response.status(201).json(atendimentoCompleto);
-                }
-            })
+            console.log('aqui')
+            return repository.post(atendimentoCompleto)
+                .then((results) => {
+                    const id = results.insertId
+                    console.log('teste ===================== 7');
+                    return {...atendimentoCompleto, id};
+                });
         }      
     }
 }

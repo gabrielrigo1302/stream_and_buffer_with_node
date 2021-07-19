@@ -1,7 +1,7 @@
 require('./services/clients')
 const customExpress = require("./config/customExpress");
-const connection = require('./infraestrutura/connection');
-const Tabelas = require('./infraestrutura/tabelas');
+const connection = require('./infraestrutura/database/connection');
+const Tabelas = require('./infraestrutura/database/tabelas');
 const port = 3000;
 const app = customExpress();
 

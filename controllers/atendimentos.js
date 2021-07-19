@@ -11,6 +11,15 @@ module.exports = (app) => {
     });
 
     app.post('/atendimentos', ( request, response) => {
-        Atendimento.post(request.body, response);
+        console.log('teste ===================== 1');
+        Atendimento.post(request.body)
+            .then((result) => { 
+                console.log('teste ===================== 8');
+                response.sendStatus(201).json(result)
+            })
+            .catch((reject) => { 
+                console.log('teste ===================== 9');
+                response.sendStatus(400).json(reject)
+            });
     });
 }
